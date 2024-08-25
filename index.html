@@ -154,6 +154,90 @@
     {
         color: rgb(245, 14, 14);
     }
+    /* General Styles for Mobile */
+body {
+    background-color: #fefeff;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+/* Adjust Top Navigation for Mobile */
+.topnav {
+    width: 100%;
+    border-radius: 0;
+    padding: 10px 0;
+}
+
+.topnav a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+}
+
+/* Adjust Image Containers for Mobile */
+.photos, .footer {
+    flex-direction: column;
+    align-items: center;
+}
+
+.photos img, .footer img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+}
+
+/* Adjust Font Sizes and Margins */
+h1, h2, h3, p {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.center {
+    flex-direction: column;
+    padding-bottom: 50px;
+}
+
+/* Responsive Images */
+.images {
+    width: 100%;
+    height: auto;
+}
+
+/* Media Query for Mobile Screens */
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 20px;
+        margin-top: 40px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    .photos img, .footer img {
+        width: 90%;
+        height: auto;
+    }
+
+    .photos figcaption, .footer figcaption {
+        font-size: 14px;
+        width: 90%;
+        text-align: center;
+    }
+
+    .develp {
+        font-size: 14px;
+    }
+}
+
         </style>
     </head>
 <body>
