@@ -1,0 +1,26 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+   }
+   
+   .school {
+    display: inline-block;
+    width: 30%;
+   }
+   
+   .hospital {
+    display: inline-block;
+    width: 30%;
+   }
+   
+   @media (max-width: 1024px) {
+    .school, .hospital {
+       width: 50%;
+    }
+   }
+   
+   @media (max-width: 768px) {
+    .school, .hospital {
+       width: 100%;
+    }
+   }
