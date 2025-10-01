@@ -2,23 +2,32 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Athul Anil</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Explore Mavelikara - A taluk and municipality in the Onattukara region of Alappuzha district, Kerala">
+    <title>Mavelikara - The Land of Maveli</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
             background-color: #fefeff;
             margin: 0;
             padding: 0;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
         }
 
         .topnav {
             background-color: #2744e6;
             overflow: hidden;
-            border-radius: 30px;
+            border-radius: 0 0 30px 30px;
             position: fixed;
             width: 100%;
             z-index: 1000;
             top: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .topnav a {
@@ -28,6 +37,7 @@
             padding: 14px 16px;
             text-decoration: none;
             font-size: 17px;
+            transition: all 0.3s ease;
         }
 
         .topnav a:hover {
@@ -45,24 +55,40 @@
             flex-wrap: wrap;
             justify-content: space-around;
             margin-top: 10px;
+            gap: 20px;
         }
 
         .photos figure {
             flex: 1 1 calc(50% - 20px);
-            margin: 10px;
+            margin: 0;
             max-width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .photos figure:hover {
+            transform: translateY(-5px);
         }
 
         .photos img {
             width: 100%;
-            height: auto;
+            height: 250px;
             object-fit: cover;
             border: 4px solid rgb(17, 107, 243);
+            transition: transform 0.3s ease;
+        }
+        
+        .photos img:hover {
+            transform: scale(1.02);
         }
 
         .photos figcaption {
             text-align: center;
             font-size: 16px;
+            padding: 10px;
+            background-color: #f8f9fa;
         }
 
         .footer {
@@ -72,22 +98,39 @@
             margin-top: 20px;
             padding: 10px;
             background-color: #f3f3f3;
+            border-radius: 8px;
+            gap: 15px;
         }
 
         .footer figure {
             flex: 1 1 calc(33.33% - 20px);
-            margin: 10px;
+            margin: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .footer figure:hover {
+            transform: translateY(-5px);
         }
 
         .footer img {
             width: 100%;
-            height: auto;
+            height: 200px;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .footer img:hover {
+            transform: scale(1.03);
         }
 
         .footer figcaption {
             text-align: center;
             font-size: 16px;
+            padding: 10px;
+            background-color: #fff;
         }
 
         .main {
@@ -108,12 +151,14 @@
 
         h1 {
             text-align: center;
-            font-size: 27px;
+            font-size: 32px;
             margin: 80px auto 20px;
             border-radius: 30px;
             background-color: #3b5edf;
             color: rgb(253, 255, 255);
-            padding: 10px;
+            padding: 15px;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
@@ -121,7 +166,7 @@
             font-size: 25px;
             color: #1c44d1;
             text-decoration: underline;
-            margin: 20px 0 10px;
+            margin: 30px 0 15px;
             padding-left: 10px;
         }
 
@@ -130,41 +175,79 @@
             font-size: 25px;
             color: #1c44d1;
             padding-left: 10px;
+            margin: 25px 0 15px;
         }
 
         p {
             padding: 0 10px;
-            font-size: 16px;
+            font-size: 17px;
+            text-align: justify;
+            margin-bottom: 15px;
         }
 
         .images {
             max-width: 100%;
             height: auto;
             border: 4px solid rgb(17, 107, 243);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .images:hover {
+            transform: scale(1.01);
         }
 
         .center {
             display: flex;
             justify-content: center;
             align-items: center;
-<<<<<<< HEAD
             padding: 20px 0;
+        }
+
+        .container, .container2 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
 
         .edu h2 {
             color: rgb(245, 14, 14);
             padding-left: 10px;
         }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #3b5edf, transparent);
+            margin: 30px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .photos figure, .footer figure {
+                flex: 1 1 calc(50% - 20px);
+            }
+        }
 
         @media (max-width: 768px) {
+            .topnav {
+                border-radius: 0;
+            }
+            
             .topnav a {
                 float: none;
                 display: block;
                 text-align: left;
-                padding: 10px;
+                padding: 12px 15px;
             }
 
-            h1, h2, h3 {
+            h1 {
+                font-size: 26px;
+                margin-top: 70px;
+                padding: 12px;
+            }
+
+            h2, h3 {
                 font-size: 22px;
                 padding-left: 10px;
             }
@@ -173,131 +256,53 @@
                 font-size: 18px;
             }
 
-            .photos figure {
+            .photos figure, .footer figure {
                 flex: 1 1 100%;
             }
-
-            .footer figure {
-                flex: 1 1 100%;
+            
+            .photos img {
+                height: 200px;
+            }
+            
+            .footer img {
+                height: 180px;
+            }
+            
+            p {
+                font-size: 16px;
+                text-align: left;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 22px;
+            }
+            
+            h2, h3 {
+                font-size: 20px;
+            }
+            
+            .photos img {
+                height: 180px;
+            }
+            
+            .footer img {
+                height: 150px;
             }
         }
     </style>
 </head>
-=======
-            height: 300px; 
-            padding-bottom: 100px;
-    }
-    .container p
-    {
-     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-     font-size: 17px;
-    }
-    .container2 p
-    {
-     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-     font-size: 17px;
-    }
-    .edu h2
-    {
-        color: rgb(245, 14, 14);
-    }
-    /* General Styles for Mobile */
-body {
-    background-color: #fefeff;
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-}
-
-/* Adjust Top Navigation for Mobile */
-.topnav {
-    width: 100%;
-    border-radius: 0;
-    padding: 10px 0;
-}
-
-.topnav a {
-    float: none;
-    display: block;
-    width: 100%;
-    text-align: left;
-    padding: 10px;
-}
-
-/* Adjust Image Containers for Mobile */
-.photos, .footer {
-    flex-direction: column;
-    align-items: center;
-}
-
-.photos img, .footer img {
-    width: 100%;
-    height: auto;
-    max-width: 300px;
-}
-
-/* Adjust Font Sizes and Margins */
-h1, h2, h3, p {
-    margin-left: 10px;
-    margin-right: 10px;
-    font-size: 1.2rem;
-}
-
-.center {
-    flex-direction: column;
-    padding-bottom: 50px;
-}
-
-/* Responsive Images */
-.images {
-    width: 100%;
-    height: auto;
-}
-
-/* Media Query for Mobile Screens */
-@media only screen and (max-width: 600px) {
-    h1 {
-        font-size: 20px;
-        margin-top: 40px;
-    }
-
-    h2 {
-        font-size: 18px;
-    }
-
-    h3 {
-        font-size: 16px;
-    }
-
-    .photos img, .footer img {
-        width: 90%;
-        height: auto;
-    }
-
-    .photos figcaption, .footer figcaption {
-        font-size: 14px;
-        width: 90%;
-        text-align: center;
-    }
-
-    .develp {
-        font-size: 14px;
-    }
-}
-
-        </style>
-    </head>
->>>>>>> 7635e87152176df6f8ed6ff9481f84a8af5e936c
 <body>
     <div class="topnav">
         <a class="active" href="index.html">Home</a>
         <a href="#about">About Us</a>
     </div>
 
-    <h1>MAVELIKARA</h1>
+    <h1>MAVELIKARA - THE LAND OF festivals</h1>
 
-    <h2>About Mavelikara</h2>
     <div class="container">
+        <h2>About Mavelikara</h2>
         <p>
             Mavelikkara is a taluk and municipality in the Onattukara region of Alappuzha district in the Indian state of Kerala. Located in the southern part of the district on the banks of the Achankovil River.
             The name Mavelikara is believed to be turned out from the words Maveli or Mahabali, the mythical king of Kerala, and Kara means land. This land is believed to be the place 'Mattom Mahadeva temple' where king Mahabali knelt before Vamana, offering his head for Vamana to keep his feet.
@@ -306,78 +311,112 @@ h1, h2, h3, p {
             The town boasts a rich historical and cultural background. The Chettikulangara Devi Temple, known for the Kumbha Bharani festival is located near the municipality. The place is home to one of the 108 Shiva temples of Kerala created by Lord Parashurama, the Kandiyoor Mahadeva Temple. It was also a major centre of trade and commerce in ancient Kerala and the erstwhile capital of the rulers of Onattukara. As a result of the close association with the Travancore Royal Family, Mavelikara gained modern facilities well ahead of other places in the state. It is one of the oldest municipalities of the state. Even before India attained independence, Mavelikara had a super express transport service to Trivandrum.
         </p>
         <div class="center">
-            <a href="https://maps.app.goo.gl/FF7n9SPZwXFaY5rs9"><img src="image2/mvk.gif" alt="Mavelikara" class="images"></a>
+            <a href="https://maps.app.goo.gl/FF7n9SPZwXFaY5rs9" aria-label="View Mavelikara on Google Maps">
+                <img src="image2/mvk.gif" alt="Map of Mavelikara" class="images">
+            </a>
         </div>
     </div>
 
-    <h2>Demographics of Mavelikara</h2>
+    <div class="section-divider"></div>
+
     <div class="container2">
+        <h2>Demographics of Mavelikara</h2>
         <p>
             As of the 2011 Census, Mavelikara had a population of 26,421 with 12,070 males and 14,351 females. Mavelikara Municipality has an area of 12.65 km2 (4.88 sq mi) with 7,184 families residing in it. The average female sex ratio was 1189, higher than the state average of 1084. 7.7% of the population was under 6 years of age. Mavelikara had an average literacy of 96.9%, higher than the state average of 94%: male literacy was 97.8% and female literacy was 96.2%.
         </p>
     </div>
 
-    <h2>Places to Visit in Mavelikara</h2>
-    <section class="photos">
-        <figure>
-            <a href="https://maps.app.goo.gl/1NLzvB1us5kiyFFW9"><img src="image/c2.gif" alt="Chettikulangara Temple"></a>
-            <figcaption><b>Chettikulangara Sree Bhagavathi Temple</b> is one of the most renowned Hindu temples in Kerala. Main deity Sree Bhadrakali, The temple is located at Chettikulangara in Mavelikkara taluk of Alappuzha district in the Indian state of Kerala.</figcaption>
-        </figure>
-        <figure>
-            <a href="https://maps.app.goo.gl/W9LppWZkYbZ9S6W39"><img src="image/c1.gif" alt="Kandiyoor Sree Mahadeva Temple"></a>
-            <figcaption><b>Kandiyoor Sree Mahadeva Temple</b> is an ancient Shiva temple situated in Kandiyoor near Mavelikkara on the banks of the Achankovil river. Kandiyoor was once the capital of the Odanadu kingdom. The temple and region are related to the history of ancient Buddhism in Kerala.</figcaption>
-        </figure>
-    </section>
+    <div class="section-divider"></div>
 
-    <section class="photos">
-        <figure>
-            <a href="https://maps.app.goo.gl/23eM37HTud5E881TA"><img src="image/c3.gif" alt="Sree Krishna Swami Temple"></a>
-            <figcaption>
-                <b>Sree Krishna Swami Temple</b>: The holy and ancient Sri Krishna Swamy Temple is at the heart of Mavelikkara town, facing towards the east. The main deity of this temple is the idol of Sri Krishna with both hands stretching out for the butterball.
-            </figcaption>
-        </figure>
-        <figure>
-            <a href="https://maps.app.goo.gl/fxWhTbgx6mEhh1j3A"><img src="image/m1.gif" alt="Mavelikara Matha Amrithanandamayi Ashram"></a>
-            <figcaption>
-                <b>Mavelikara Matha Amrithanandamayi Ashram</b>: This temple is a quiet and peaceful place, an ideal place for meditation.
-            </figcaption>
-        </figure>
-    </section>
+    <div class="container">
+        <h2>Places to Visit in Mavelikara</h2>
+        <section class="photos">
+            <figure>
+                <a href="https://maps.app.goo.gl/1NLzvB1us5kiyFFW9" aria-label="View Chettikulangara Temple on Google Maps">
+                    <img src="image/c2.gif" alt="Chettikulangara Temple">
+                </a>
+                <figcaption><b>Chettikulangara Sree Bhagavathi Temple</b> is one of the most renowned Hindu temples in Kerala. Main deity Sree Bhadrakali, The temple is located at Chettikulangara in Mavelikkara taluk of Alappuzha district in the Indian state of Kerala.</figcaption>
+            </figure>
+            <figure>
+                <a href="https://maps.app.goo.gl/W9LppWZkYbZ9S6W39" aria-label="View Kandiyoor Sree Mahadeva Temple on Google Maps">
+                    <img src="image/c1.gif" alt="Kandiyoor Sree Mahadeva Temple">
+                </a>
+                <figcaption><b>Kandiyoor Sree Mahadeva Temple</b> is an ancient Shiva temple situated in Kandiyoor near Mavelikkara on the banks of the Achankovil river. Kandiyoor was once the capital of the Odanadu kingdom. The temple and region are related to the history of ancient Buddhism in Kerala.</figcaption>
+            </figure>
+        </section>
 
-    <h2>Education in Mavelikara</h2>
-    <section class="edu">
-        <h2>Schools</h2>
-        <div class="footer">
+        <section class="photos">
             <figure>
-                <a href="https://maps.app.goo.gl/1NLzvB1us5kiyFFW9"><img src="image/c4.gif" alt="Bishop Moore Vidyapith, Mavelikara"></a>
-                <figcaption>Bishop Moore Vidyapith, Mavelikara</figcaption>
+                <a href="https://maps.app.goo.gl/23eM37HTud5E881TA" aria-label="View Sree Krishna Swami Temple on Google Maps">
+                    <img src="image/c3.gif" alt="Sree Krishna Swami Temple">
+                </a>
+                <figcaption>
+                    <b>Sree Krishna Swami Temple</b>: The holy and ancient Sri Krishna Swamy Temple is at the heart of Mavelikkara town, facing towards the east. The main deity of this temple is the idol of Sri Krishna with both hands stretching out for the butterball.
+                </figcaption>
             </figure>
             <figure>
-                <a href="https://maps.app.goo.gl/fcE3Th4L5ud5G83K6"><img src="image/c5.gif" alt="Government Boys High School, Mavelikara"></a>
-                <figcaption>Government Boys High School, Mavelikara</figcaption>
+                <a href="https://maps.app.goo.gl/fxWhTbgx6mEhh1j3A" aria-label="View Mavelikara Matha Amrithanandamayi Ashram on Google Maps">
+                    <img src="image/m1.gif" alt="Mavelikara Matha Amrithanandamayi Ashram">
+                </a>
+                <figcaption>
+                    <b>Mavelikara Matha Amrithanandamayi Ashram</b>: This temple is a quiet and peaceful place, an ideal place for meditation.
+                </figcaption>
             </figure>
-            <figure>
-                <a href="https://maps.app.goo.gl/ErhD15R9L5ud5G83L9"><img src="image/c6.gif" alt="Government Girls High School, Mavelikara"></a>
-                <figcaption>Government Girls High School, Mavelikara</figcaption>
-            </figure>
-        </div>
+        </section>
+    </div>
 
-        <h2>Colleges</h2>
-        <div class="footer">
-            <figure>
-                <a href="https://maps.app.goo.gl/ffWhTbgx6mEhh1j3C"><img src="image/c7.gif" alt="Bishop Moore College, Mavelikara"></a>
-                <figcaption>Bishop Moore College, Mavelikara</figcaption>
-            </figure>
-            <figure>
-                <a href="https://maps.app.goo.gl/ErhD15R9L5ud5G83K6"><img src="image/c8.gif" alt="NSS College, Mavelikara"></a>
-                <figcaption>NSS College, Mavelikara</figcaption>
-            </figure>
-            <figure>
-                <a href="https://maps.app.goo.gl/W7LppWZkYbZ9S6W19"><img src="image/c9.gif" alt="Sree Narayana College, Mavelikara"></a>
-                <figcaption>Sree Narayana College, Mavelikara</figcaption>
-            </figure>
-        </div>
-    </section>
+    <div class="section-divider"></div>
 
+    <div class="container">
+        <section class="edu">
+            <h2>Education in Mavelikara</h2>
+            
+            <h3>Schools</h3>
+            <div class="footer">
+                <figure>
+                    <a href="https://maps.app.goo.gl/1NLzvB1us5kiyFFW9" aria-label="View Bishop Moore Vidyapith on Google Maps">
+                        <img src="image/c4.gif" alt="Bishop Moore Vidyapith, Mavelikara">
+                    </a>
+                    <figcaption>Bishop Moore Vidyapith, Mavelikara</figcaption>
+                </figure>
+                <figure>
+                    <a href="https://maps.app.goo.gl/fcE3Th4L5ud5G83K6" aria-label="View Government Boys High School on Google Maps">
+                        <img src="image/c5.gif" alt="Government Boys High School, Mavelikara">
+                    </a>
+                    <figcaption>Government Boys High School, Mavelikara</figcaption>
+                </figure>
+                <figure>
+                    <a href="https://maps.app.goo.gl/ErhD15R9L5ud5G83L9" aria-label="View Government Girls High School on Google Maps">
+                        <img src="image/c6.gif" alt="Government Girls High School, Mavelikara">
+                    </a>
+                    <figcaption>Government Girls High School, Mavelikara</figcaption>
+                </figure>
+            </div>
+
+            <h3>Colleges</h3>
+            <div class="footer">
+                <figure>
+                    <a href="https://maps.app.goo.gl/ffWhTbgx6mEhh1j3C" aria-label="View Bishop Moore College on Google Maps">
+                        <img src="image/c7.gif" alt="Bishop Moore College, Mavelikara">
+                    </a>
+                    <figcaption>Bishop Moore College, Mavelikara</figcaption>
+                </figure>
+                <figure>
+                    <a href="https://maps.app.goo.gl/ErhD15R9L5ud5G83K6" aria-label="View NSS College on Google Maps">
+                        <img src="image/c8.gif" alt="NSS College, Mavelikara">
+                    </a>
+                    <figcaption>NSS College, Mavelikara</figcaption>
+                </figure>
+                <figure>
+                    <a href="https://maps.app.goo.gl/W7LppWZkYbZ9S6W19" aria-label="View Sree Narayana College on Google Maps">
+                        <img src="image/c9.gif" alt="Sree Narayana College, Mavelikara">
+                    </a>
+                    <figcaption>Sree Narayana College, Mavelikara</figcaption>
+                </figure>
+            </div>
+        </section>
+    </div>
+
+    <div style="height: 50px;"></div>
 </body>
 </html>
